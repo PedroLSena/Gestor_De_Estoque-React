@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import {useStock} from "../hooks/UseStock.ts";
 import DeleteButton from "./DeleteItem.tsx";
-
+import Style from "../all.module.css";
 interface Item {
   id: number;
   name: string;
@@ -14,22 +14,22 @@ export default function ItemsTable() {
 
   return (
     <table>
-      <thead>
+      <thead className={Style.allTable}>
         <tr>
-          <th>ID</th>
-          <th>Nome</th>
-          <th>Em Estoque</th>
-          <th>Categoria</th>
+          <th className={Style.eatchItem}>ID</th>
+          <th className={Style.eatchItem}>Nome</th>
+          <th className={Style.eatchItem}>Quantidade</th>
+          <th className={Style.eatchItem}>Empresa</th>
           <th>Ações</th>
         </tr>
       </thead>
       <tbody>
         {items.map((item) => (
-          <tr key={item.id}>
-            <td>{item.id}</td>
-            <td>{item.name}</td>
-            <td>{item.quantity} unid.</td>
-            <td>{item.category}</td>
+          <tr key={item.id} className={Style.allTable}>
+            <td className={Style.eatchItem}>{item.id}</td>
+            <td className={Style.eatchItem}>{item.name}</td>
+            <td className={Style.eatchItem}>{item.quantity} unid.</td>
+            <td className={Style.eatchItem}>{item.category}</td>
             <td>
               <Link to={`/items/${item.id}`} className="button is-primary is-small">
                 Ver
